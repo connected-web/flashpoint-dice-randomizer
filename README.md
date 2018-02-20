@@ -1,6 +1,20 @@
 # Flashpoint Dice Randomizer
 
-A dice randomizer for the boardgame [Flash Point: Fire Rescue](http://www.indieboardsandcards.com/fpfr.php).
+A browser based visual dice roller that rolls a **1d6** and **1d8** together; for use with the boardgame [Flash Point: Fire Rescue](http://www.indieboardsandcards.com/fpfr.php).
+
+Short link for remebering: http://bit.do/flashpoint
+
+QR code for mobile:
+
+![QR Code](./artwork/qr-code-half.png)
+
+Or click on the image to open the randomizer:
+
+<a href="https://connected-web.github.io/flashpoint-dice-randomizer/index.html">
+  ![What it looks like](./artwork/example-screenshot.png)
+</a>
+
+## About Flash Point: Fire Rescue
 
 From Indie Boards & Cards:
 >Flash Point: Fire Rescue is a fully cooperative game, everyone plays on the same firefighting team - win or lose together!   Every turn is filled with the tension of having to fight the fire back, rescuing victims or investigating points of interest.  Players can ride the ambulance to safety or fire the engine's deck gun in a desperate attempt to control the blaze.
