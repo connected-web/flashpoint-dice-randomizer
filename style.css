@@ -1,0 +1,97 @@
+html, body {
+  background: #333;
+  text-align: center;
+  margin: 40px;
+}
+
+h1 {
+  font-family: sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+#dice-container {
+  min-height: 128px;
+  text-align: center;
+
+  padding: 20px;
+  background: #A96;
+  border-radius: 20px;
+}
+
+.dice {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 128px;
+
+  width: 40%;
+  padding-top: 40%
+}
+
+.d8 {
+  background-size:contain;
+}
+
+.d6 {
+  background-size:contain;
+}
+
+.d6-1 { background-image: url('./artwork/d6-1.png'); }
+.d6-2 { background-image: url('./artwork/d6-2.png'); }
+.d6-3 { background-image: url('./artwork/d6-3.png'); }
+.d6-4 { background-image: url('./artwork/d6-4.png'); }
+.d6-5 { background-image: url('./artwork/d6-5.png'); }
+.d6-6 { background-image: url('./artwork/d6-6.png'); }
+
+.d8-1 { background-image: url('./artwork/d8-1.png'); }
+.d8-2 { background-image: url('./artwork/d8-2.png'); }
+.d8-3 { background-image: url('./artwork/d8-3.png'); }
+.d8-4 { background-image: url('./artwork/d8-4.png'); }
+.d8-5 { background-image: url('./artwork/d8-5.png'); }
+.d8-6 { background-image: url('./artwork/d8-6.png'); }
+.d8-7 { background-image: url('./artwork/d8-7.png'); }
+.d8-8 { background-image: url('./artwork/d8-8.png'); }
+
+.rotate {
+  animation-duration: 250ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.rotate340 {
+  animation-name: spin340;
+  transform: rotate(340deg)
+}
+
+.rotate10 {
+  animation-name: spin10;
+  transform: rotate(10deg)
+}
+
+.rotate40 {
+  animation-name: spin40;
+  transform: rotate(40deg)
+}
+
+.rotate70 {
+  animation-name: spin70;
+  transform: rotate(70deg)
+}
+
+.rotate100 {
+  animation-name: spin100;
+  transform: rotate(100deg)
+}
+
+.rotate130 {
+  animation-name: spin130;
+  transform: rotate(130deg)
+}
+
+@keyframes spin340 { from { transform: rotate(260deg); } to { transform: rotate(340deg); } }
+@keyframes spin10 { from { transform: rotate(120deg); } to { transform: rotate(10deg); } }
+@keyframes spin40 { from { transform: rotate(260deg); } to { transform: rotate(40deg); } }
+@keyframes spin70 { from { transform: rotate(120deg); } to { transform: rotate(70deg); } }
+@keyframes spin100 { from { transform: rotate(260deg); } to { transform: rotate(100deg); } }
+@keyframes spin130 { from { transform: rotate(120deg); } to { transform: rotate(130deg); } }
