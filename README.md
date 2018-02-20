@@ -11,7 +11,7 @@ QR code for mobile:
 Or click on the image to open the randomizer:
 
 <a href="https://connected-web.github.io/flashpoint-dice-randomizer/index.html">
-  ![What it looks like](./artwork/example-screenshot.png)
+![What it looks like](./artwork/example-screenshot.png)
 </a>
 
 ## About Flash Point: Fire Rescue
