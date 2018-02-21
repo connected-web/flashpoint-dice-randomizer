@@ -33,10 +33,35 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center;
   min-width: 128px;
+  max-width: 256px;
 
   width: 40%;
   padding-top: 40%
 }
+
+.dice.counter {
+  min-width: 50px;
+  width: 50px;
+  height: 100px;
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.roll.results > p > .dice {
+  min-width: 50px;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  margin: 0;
+}
+
+.roll.results > p:nth-child(1) { opacity: 1.0 }
+.roll.results > p:nth-child(2) { opacity: 0.8 }
+.roll.results > p:nth-child(3) { opacity: 0.6 }
+.roll.results > p:nth-child(4) { opacity: 0.4 }
+.roll.results > p:nth-child(5) { opacity: 0.2 }
 
 .d8 {
   background-size:contain;
@@ -62,10 +87,20 @@ a:hover {
 .d8-7 { background-image: url('./artwork/d8-7.png'); }
 .d8-8 { background-image: url('./artwork/d8-8.png'); }
 
+.fade.in {
+  animation-name: fadein;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  opacity: 1.0;
+}
+
+@keyframes fadein { from { opacity: 0.0; } to { opacity: 1.0; } }
+
 .rotate {
   animation-duration: 250ms;
   animation-iteration-count: 1;
-  animation-timing-function: linear;
+  animation-timing-function: ease-out;
 }
 
 .rotate340 {

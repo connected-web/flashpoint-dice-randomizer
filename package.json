@@ -1,6 +1,6 @@
 {
   "name": "flashpoint-dice-randomizer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A dice randomizer for the boardgame Flashpoint: Fire Rescue.",
   "main": "docs/index.html",
   "scripts": {},

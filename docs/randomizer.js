@@ -5,24 +5,94 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const rotations = ['340', '10', '40', '70', '100', '130']
 
-  /* React to mouse clicks on the dice container */
-  $diceContainer.addEventListener('click', rollAllDice)
+  const dice = [
+    {
+      d: 6,
+      $el: document.getElementById('d6'),
+      counters: [],
+      results: []
+    },
+    {
+      d: 8,
+      $el: document.getElementById('d8'),
+      counters: [],
+      results: []
+    }
+  ]
 
-  function rollAllDice() {
+  const results = []
+
+  dice.forEach(die => {
+    const {d} = die
+    while (die.counters.length < d) {
+      let n = die.counters.length + 1
+      $el = document.getElementById(`d${d}-${n}-counter`)
+      die.counters.push({ $el, n, count: 0 })
+    }
+  })
+
+  function renderDieCounters(die) {
+    die.counters.forEach(counter => {
+      const { $el, count } = counter
+      $el.innerHTML = count
+    })
+  }
+
+  function renderDiceResults(results) {
+    const $el = document.getElementById('roll-results')
+    const $result = document.createElement('p')
+    $result.className = 'fade in'
+    const result = results[0]
+    const { d6, d8 } = result
+    $result.innerHTML = [
+      `<div class="dice d6 d6-${d6}"></div>`,
+      `<div class="dice d8 d8-${d8}"></div>`
+    ].join('')
+    $el.insertBefore($result, $el.firstChild)
+    if ($el.childNodes.length > results.length) {
+      $el.removeChild($el.lastChild)
+    }
+  }
+
+  /* React to mouse clicks on the dice container */
+  $diceContainer.addEventListener('click', rollDice)
+
+  function summarise(dice) {
+    return dice.reduce((acc, die) => {
+      acc[`d${die.d}`] = die.value
+      return acc
+    }, {})
+  }
+
+  function rollDice() {
     let n = 5
     let timeout = setInterval(() => {
-      rollDice($d6, 6)
-      rollDice($d8, 8)
       n--
+      dice.forEach(die => {
+        rollDie(die)
+        if (n === 0) {
+          die.results.unshift(die.value)
+          die.counters[die.value - 1].count++
+          renderDieCounters(die)
+        }
+      })
       if (n <= 0) {
         clearInterval(timeout)
+        const summary = summarise(dice)
+        results.unshift(summary)
+        while (results.length > 5) {
+          results.pop()
+        }
+        renderDiceResults(results)
       }
     }, 125)
   }
 
-  function rollDice($el, d) {
+  function rollDie(die) {
+    const {$el, d} = die
     const rotation = `rotate rotate${pick(rotations)}`
-    $el.className = `dice d${d} d${d}-${roll(d)} ${rotation}`
+    die.value = roll(d)
+    $el.className = `dice d${d} d${d}-${die.value} ${rotation}`
   }
 
   /* Roll a dice between 1 and num */
@@ -47,5 +117,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* Get this show on the road */
-  rollAllDice()
+  rollDice()
 })
