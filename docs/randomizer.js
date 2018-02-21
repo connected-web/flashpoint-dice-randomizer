@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function rollDice() {
-    let n = 5
+    let n = 2
     let timeout = setInterval(() => {
       n--
       dice.forEach(die => {
@@ -85,14 +85,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         renderDiceResults(results)
       }
-    }, 125)
+    }, 150)
   }
 
   function rollDie(die) {
     const {$el, d} = die
     const rotation = `rotate rotate${pick(rotations)}`
     die.value = roll(d)
-    $el.className = `dice d${d} d${d}-${die.value} ${rotation}`
+    $el.className = `dice d${d} d${d}-${die.value}`
+    setTimeout(() => {
+      $el.className = `dice d${d} d${d}-${die.value} ${rotation}`
+    }, 1)
   }
 
   /* Roll a dice between 1 and num */
