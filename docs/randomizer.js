@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const rotations = ['340', '10', '40', '70', '100', '130']
 
   /* React to mouse clicks on the dice container */
-  $diceContainer.addEventListener('click', () => {
+  $diceContainer.addEventListener('click', rollAllDice)
+
+  function rollAllDice() {
     let n = 5
     let timeout = setInterval(() => {
       rollDice($d6, 6)
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timeout)
       }
     }, 125)
-  })
+  }
 
   function rollDice($el, d) {
     const rotation = `rotate rotate${pick(rotations)}`
@@ -43,4 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     console.log('Rolls', rolls)
   }
+
+  /* Get this show on the road */
+  rollAllDice()
 })
